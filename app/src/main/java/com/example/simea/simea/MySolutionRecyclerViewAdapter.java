@@ -9,24 +9,23 @@ import android.widget.TextView;
 
 import com.chauthai.swipereveallayout.SwipeRevealLayout;
 import com.chauthai.swipereveallayout.ViewBinderHelper;
-import com.example.simea.simea.Classes.Mission;
-import com.example.simea.simea.Classes.MissionList;
-import com.example.simea.simea.MissionFragment.OnListFragmentInteractionListener;
+import com.example.simea.simea.Classes.Solution;
+import com.example.simea.simea.SolutionFragment.OnListFragmentInteractionListener;
 
 import java.util.List;
 
 /**
- * {@link RecyclerView.Adapter} that can display a {@link Mission} and makes a call to the
+ * {@link RecyclerView.Adapter} that can display a {@link Solution} and makes a call to the
  * specified {@link OnListFragmentInteractionListener}.
- * TODO: Add the many menu items
+ * TODO: Replace the implementation with code for your data type.
  */
-public class MyMissionRecyclerViewAdapter extends RecyclerView.Adapter<MyMissionRecyclerViewAdapter.ViewHolder> {
+public class MySolutionRecyclerViewAdapter extends RecyclerView.Adapter<MySolutionRecyclerViewAdapter.ViewHolder> {
 
-    private final List<Mission> mValues;
+    private final List<Solution> mValues;
     private final OnListFragmentInteractionListener mListener;
     private final ViewBinderHelper viewBinderHelper = new ViewBinderHelper();
 
-    public MyMissionRecyclerViewAdapter(MissionList items, OnListFragmentInteractionListener listener) {
+    public MySolutionRecyclerViewAdapter(List<Solution> items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -34,17 +33,18 @@ public class MyMissionRecyclerViewAdapter extends RecyclerView.Adapter<MyMission
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.fragment_mission, parent, false);
+                .inflate(R.layout.fragment_solution, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        Log.d("in the adapter", String.valueOf(holder.mItem.getId()));
-        holder.mIdView.setText(String.valueOf(mValues.get(position).getId()));
-        holder.mContentView.setText(mValues.get(position).getDescription());
-        viewBinderHelper.bind(holder.swipee, holder.mItem.getDetails());
+        holder.mIdView.setText(mValues.get(position).getId());
+        holder.mContentView.setText(mValues.get(position).getTitle());
+        viewBinderHelper.bind(holder.swipe, holder.mItem.getDescription());
+
+
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,15 +66,15 @@ public class MyMissionRecyclerViewAdapter extends RecyclerView.Adapter<MyMission
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public Mission mItem;
-        public SwipeRevealLayout swipee;
+        public Solution mItem;
+        public final SwipeRevealLayout swipe;
 
         public ViewHolder(View view) {
             super(view);
             mView = view;
             mIdView = (TextView) view.findViewById(R.id.item_number);
             mContentView = (TextView) view.findViewById(R.id.content);
-            swipee = (SwipeRevealLayout) view.findViewById(R.id.swipee);
+            swipe = (SwipeRevealLayout) view.findViewById(R.id.solution_swipe);
         }
 
         @Override

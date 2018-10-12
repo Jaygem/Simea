@@ -1,18 +1,19 @@
 package com.example.simea.simea;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.simea.simea.Classes.Mission;
-import com.example.simea.simea.Classes.MissionList;
+import com.example.simea.simea.Classes.Solution;
+import com.example.simea.simea.Classes.SolutionList;
+
+import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -20,26 +21,26 @@ import com.example.simea.simea.Classes.MissionList;
  * Activities containing this fragment MUST implement the {@link OnListFragmentInteractionListener}
  * interface.
  */
-public class MissionFragment extends Fragment {
+public class SolutionFragment extends Fragment {
 
     // TODO: Customize parameter argument names
     private static final String ARG_COLUMN_COUNT = "column-count";
     // TODO: Customize parameters
     private int mColumnCount = 1;
     private OnListFragmentInteractionListener mListener;
-    private MissionList dataset;
+    private SolutionList dataset;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public MissionFragment() {
+    public SolutionFragment() {
     }
 
     // TODO: Customize parameter initialization
     @SuppressWarnings("unused")
-    public static MissionFragment newInstance(int columnCount) {
-        MissionFragment fragment = new MissionFragment();
+    public static SolutionFragment newInstance(int columnCount) {
+        SolutionFragment fragment = new SolutionFragment();
         Bundle args = new Bundle();
         args.putInt(ARG_COLUMN_COUNT, columnCount);
         fragment.setArguments(args);
@@ -58,11 +59,9 @@ public class MissionFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_mission_list, container, false);
-        dataset = new MissionList();
+        View view = inflater.inflate(R.layout.fragment_solution_list, container, false);
+        dataset = new SolutionList();
         dataset.GenerateRandom(50);
-        for(int i=0;i<5;i++)
-            Log.d("ValueYouness", dataset.get(i).getDescription());
         // Set the adapter
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
@@ -72,7 +71,7 @@ public class MissionFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyMissionRecyclerViewAdapter(dataset, mListener));
+            recyclerView.setAdapter(new MySolutionRecyclerViewAdapter(dataset, mListener));
         }
         return view;
     }
@@ -107,6 +106,6 @@ public class MissionFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(Mission item);
+        void onListFragmentInteraction(Solution item);
     }
 }

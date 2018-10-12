@@ -2,7 +2,7 @@
 <com.chauthai.swipereveallayout.SwipeRevealLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/swipee"
+    android:id="@+id/solution_swipe"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:mode="same_level"
     app:dragEdge="left"
@@ -11,11 +11,13 @@
     <!-- Your secondary layout here -->
     <!-- Your first layout here-->
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
+        android:orientation="vertical"
+        >
         <Button
             android:id="@+id/ButtonDeleteSolution"
             android:layout_width="match_parent"
@@ -35,7 +37,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:background="@color/blue_violet">
 
         <TextView
             android:id="@+id/item_number"

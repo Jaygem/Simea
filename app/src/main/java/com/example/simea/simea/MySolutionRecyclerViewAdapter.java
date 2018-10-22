@@ -40,7 +40,7 @@ public class MySolutionRecyclerViewAdapter extends RecyclerView.Adapter<MySoluti
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).getId());
+        holder.mIdView.setText(String.valueOf(mValues.get(position).getId()));
         holder.mContentView.setText(mValues.get(position).getTitle());
         viewBinderHelper.bind(holder.swipe, holder.mItem.getDescription());
 
@@ -72,8 +72,8 @@ public class MySolutionRecyclerViewAdapter extends RecyclerView.Adapter<MySoluti
         public ViewHolder(View view) {
             super(view);
             mView = view;
-            mIdView = (TextView) view.findViewById(R.id.item_number);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            mIdView = (TextView) view.findViewById(R.id.solutionNumber);
+            mContentView = (TextView) view.findViewById(R.id.solutionTitle);
             swipe = (SwipeRevealLayout) view.findViewById(R.id.solution_swipe);
         }
 

@@ -15,40 +15,38 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="160dp"
         android:orientation="vertical"
         >
+
         <Button
             android:id="@+id/ButtonDeleteSolution"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/dark_red"
-            />
+            android:layout_height="match_parent"
+            android:background="@color/dark_red" />
 
         <Button
             android:id="@+id/ButtonOpenSolution"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/dark_cyan"
-            />
+            android:layout_height="match_parent"
+            android:background="@color/dark_cyan" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:background="@color/blue_violet">
+        android:layout_height="160dp"
+        android:orientation="vertical">
 
         <TextView
-            android:id="@+id/item_number"
+            android:id="@+id/solutionNumber"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/text_margin"
             android:textAppearance="?attr/textAppearanceListItem" />
 
         <TextView
-            android:id="@+id/content"
+            android:id="@+id/solutionTitle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/text_margin"

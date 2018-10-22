@@ -13,29 +13,47 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="160dp"
         android:orientation="vertical">
 
         <Button
             android:id="@+id/ButtonDeleteSolution"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/dark_red"
-            />
+            android:layout_height="match_parent"
+            android:background="@color/dark_red" />
 
         <Button
             android:id="@+id/ButtonOpenSolution"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/dark_cyan"
-            />
+            android:layout_height="match_parent"
+            android:background="@color/dark_cyan" />
 
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="160dp"
         android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/FrameMission"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/dark_cyan">
+
+            </FrameLayout>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/Description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView" />
 
         <TextView
             android:id="@+id/item_number"
@@ -45,7 +63,7 @@
             android:textAppearance="?attr/textAppearanceListItem" />
 
         <TextView
-            android:id="@+id/content"
+            android:id="@+id/missionTitle"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="@dimen/text_margin"

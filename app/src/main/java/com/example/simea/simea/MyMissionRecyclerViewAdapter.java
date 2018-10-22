@@ -73,7 +73,7 @@ public class MyMissionRecyclerViewAdapter extends RecyclerView.Adapter<MyMission
             super(view);
             mView = view;
             mIdView = (TextView) view.findViewById(R.id.item_number);
-            mContentView = (TextView) view.findViewById(R.id.content);
+            mContentView = (TextView) view.findViewById(R.id.missionTitle);
             swipee = (SwipeRevealLayout) view.findViewById(R.id.swipee);
         }
 

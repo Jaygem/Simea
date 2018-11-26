@@ -6,22 +6,18 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.simea.simea.Classes.Task;
+import com.example.simea.simea.Classes.TaskList;
 import com.example.simea.simea.TasksFragment.OnListFragmentInteractionListener;
-import com.example.simea.simea.Classes.Task.DummyItem;
 
 import java.util.List;
 
-/**
- * {@link RecyclerView.Adapter} that can display a {@link DummyItem} and makes a call to the
- * specified {@link OnListFragmentInteractionListener}.
- * TODO: Replace the implementation with code for your data type.
- */
 public class MyTasksRecyclerViewAdapter extends RecyclerView.Adapter<MyTasksRecyclerViewAdapter.ViewHolder> {
 
-    private final List<DummyItem> mValues;
+    private final TaskList mValues;
     private final OnListFragmentInteractionListener mListener;
 
-    public MyTasksRecyclerViewAdapter(List<DummyItem> items, OnListFragmentInteractionListener listener) {
+    public MyTasksRecyclerViewAdapter(TaskList items, OnListFragmentInteractionListener listener) {
         mValues = items;
         mListener = listener;
     }
@@ -36,8 +32,8 @@ public class MyTasksRecyclerViewAdapter extends RecyclerView.Adapter<MyTasksRecy
     @Override
     public void onBindViewHolder(final ViewHolder holder, int position) {
         holder.mItem = mValues.get(position);
-        holder.mIdView.setText(mValues.get(position).id);
-        holder.mContentView.setText(mValues.get(position).content);
+        holder.mIdView.setText(mValues.get(position).getId());
+        holder.mContentView.setText(mValues.get(position).getDescription());
 
         holder.mView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,7 +56,7 @@ public class MyTasksRecyclerViewAdapter extends RecyclerView.Adapter<MyTasksRecy
         public final View mView;
         public final TextView mIdView;
         public final TextView mContentView;
-        public DummyItem mItem;
+        public Task mItem;
 
         public ViewHolder(View view) {
             super(view);

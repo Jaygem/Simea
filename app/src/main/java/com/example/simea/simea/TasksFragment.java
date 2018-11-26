@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.simea.simea.Classes.Task;
-import com.example.simea.simea.Classes.Task.DummyItem;
+import com.example.simea.simea.Classes.TaskList;
 
 /**
  * A fragment representing a list of Items.
@@ -59,6 +59,8 @@ public class TasksFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_tasks_list, container, false);
 
         // Set the adapter
+        TaskList data = new TaskList();
+        data.GenerateRandom(10);
         if (view instanceof RecyclerView) {
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) view;
@@ -67,7 +69,7 @@ public class TasksFragment extends Fragment {
             } else {
                 recyclerView.setLayoutManager(new GridLayoutManager(context, mColumnCount));
             }
-            recyclerView.setAdapter(new MyTasksRecyclerViewAdapter(Task.ITEMS, mListener));
+            recyclerView.setAdapter(new MyTasksRecyclerViewAdapter(data, mListener));
         }
         return view;
     }
@@ -102,6 +104,6 @@ public class TasksFragment extends Fragment {
      */
     public interface OnListFragmentInteractionListener {
         // TODO: Update argument type and name
-        void onListFragmentInteraction(DummyItem item);
+        void onListFragmentInteraction(Task item);
     }
 }
